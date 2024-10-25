@@ -3,7 +3,7 @@ from hashlib import sha256
 from numbers import Number
 from random import shuffle
 from time import time
-from typing import Any, Tuple
+from typing import Tuple
 
 import numpy as np
 from chess import Board
@@ -12,8 +12,7 @@ from mctchess.utils.chess_utils import get_random_move, parse_result
 
 
 def rollout_move(
-    board: Board, move: str, simulations: int = 10
-) -> Tuple[str, Number[Any]]:
+    board: Board, move: str, simulations: int = 10) -> Tuple[str, float]:
     rollouts_scores = list()
     for _ in range(simulations):
         child_node = board.copy()
